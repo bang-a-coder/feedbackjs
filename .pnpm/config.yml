@@ -1,0 +1,6 @@
+manager: yarn
+
+package_npm_name: feedbackjs
+package_name: feedbackjs
+
+test?: no # or yes
