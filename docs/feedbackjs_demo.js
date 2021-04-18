@@ -4,6 +4,8 @@ feedbackjs.injectStyle('main')
 console.log(_page.displayWrapper)
 console.log(_page.display)
 
+
+console.log(pragmas.Feedback)
 _page.display
     .css("height 250px")
     .createWire('icon')
