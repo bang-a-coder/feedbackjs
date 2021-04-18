@@ -4,6 +4,7 @@ feedbackjs.injectStyle('main')
 console.log(_page.displayWrapper)
 console.log(_page.display)
 
+feedbackjs._feedback('How do you like Fready so far?')
 
 console.log(pragmas.Feedback)
 _page.display

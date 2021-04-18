@@ -1,5 +1,7 @@
+import { Feedback } from "./pragmas/index"
+
 export * from "./.build_assets/index" // globalifies pragmajs, exports packages assets
 
-export function feedbackjsTest(){
-    console.log("hello from _feedbackjs")
+export function _feedback(){
+    return new Feedback(...arguments)
 }
