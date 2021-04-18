@@ -24,10 +24,39 @@ body {
     bottom: 80px;
     right: 20px;
     width: 300px;
-    height: 200px;
     background-color: #393939;
     padding: 20px;
     box-sizing: border-box;
+
+    .stars {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin: 30px auto;
+
+        .star {
+            position: relative;
+            width: 30px;
+            height: 28px;
+            margin: 0 10px;
+
+            [data-name='star-empty'] {
+                background-color: #393939;
+            }
+
+            [data-name='star-full'] {
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+            }
+
+        }
+    }
+
 }
 
 

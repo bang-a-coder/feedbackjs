@@ -28,7 +28,7 @@
         π: H
     });
 
-    var main = "@charset \"utf-8\";@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;600&family=IBM+Plex+Sans&display=swap);body{background-color:#161616;color:whitesmoke}body h1,body h2,body h3,body h4,body h5,body h6{font-family:'IBM Plex Mono',monospace}body h1{font-size:18px}body p{font-family:'IBM Plex Sans',sans-serif}.feedback-form{position:absolute;z-index:456785437895435895435895746344890778574689;bottom:80px;right:20px;width:300px;height:200px;background-color:#393939;padding:20px;box-sizing:border-box}.page-container{height:100vh}.flex-center{display:flex;align-items:center;justify-content:center;flex-direction:column}.fade-onload{-webkit-animation:fadein .5s;-moz-animation:fadein .5s;-ms-animation:fadein .5s;-o-animation:fadein .5s;animation:fadein .5s}@keyframes fadein{from{opacity:0}to{opacity:1}}@-moz-keyframes fadein{from{opacity:0}to{opacity:1}}@-webkit-keyframes fadein{from{opacity:0}to{opacity:1}}@-ms-keyframes fadein{.fade-onload from{opacity:0}.fade-onload to{opacity:1}}@-o-keyframes fadein{from{opacity:0}to{opacity:1}}";
+    var main = "@charset \"utf-8\";@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;600&family=IBM+Plex+Sans&display=swap);body{background-color:#161616;color:whitesmoke}body h1,body h2,body h3,body h4,body h5,body h6{font-family:'IBM Plex Mono',monospace}body h1{font-size:18px}body p{font-family:'IBM Plex Sans',sans-serif}.feedback-form{position:absolute;z-index:456785437895435895435895746344890778574689;bottom:80px;right:20px;width:300px;background-color:#393939;padding:20px;box-sizing:border-box}.feedback-form .stars{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;align-items:center;align-content:center;margin:30px auto}.feedback-form .stars .star{position:relative;width:30px;height:28px;margin:0 10px}.feedback-form .stars .star [data-name='star-empty']{background-color:#393939}.feedback-form .stars .star [data-name='star-full']{position:absolute;top:0;left:0;opacity:0}.page-container{height:100vh}.flex-center{display:flex;align-items:center;justify-content:center;flex-direction:column}.fade-onload{-webkit-animation:fadein .5s;-moz-animation:fadein .5s;-ms-animation:fadein .5s;-o-animation:fadein .5s;animation:fadein .5s}@keyframes fadein{from{opacity:0}to{opacity:1}}@-moz-keyframes fadein{from{opacity:0}to{opacity:1}}@-webkit-keyframes fadein{from{opacity:0}to{opacity:1}}@-ms-keyframes fadein{.fade-onload from{opacity:0}.fade-onload to{opacity:1}}@-o-keyframes fadein{from{opacity:0}to{opacity:1}}";
     var styles = {
     	main: main
     };
@@ -136,10 +136,28 @@
     const Template = (title) => X`
 <div class='feedback-form'>
     <h1 class='question-uno'>${title}</h1>
-    <div class='star'>
-        ${SVG('star-empty')}
-    </div>
-
+   <div class="stars"> 
+           <div class='star'>
+               ${SVG('star-empty')}
+               ${SVG('star-full')}
+           </div>
+           <div class='star'>
+               ${SVG('star-empty')}
+               ${SVG('star-full')}
+           </div>
+           <div class='star'>
+               ${SVG('star-empty')}
+               ${SVG('star-full')}
+           </div>
+           <div class='star'>
+               ${SVG('star-empty')}
+               ${SVG('star-full')}
+           </div>
+           <div class='star'>
+               ${SVG('star-empty')}
+               ${SVG('star-full')}
+           </div>
+   </div>
 </div>
 `; 
 

@@ -7,10 +7,28 @@ console.log('TIIIITS')
 const Template = (title) => html`
 <div class='feedback-form'>
     <h1 class='question-uno'>${title}</h1>
-    <div class='star'>
-        ${SVG('star-empty')}
-    </div>
-
+   <div class="stars"> 
+           <div class='star'>
+               ${SVG('star-empty')}
+               ${SVG('star-full')}
+           </div>
+           <div class='star'>
+               ${SVG('star-empty')}
+               ${SVG('star-full')}
+           </div>
+           <div class='star'>
+               ${SVG('star-empty')}
+               ${SVG('star-full')}
+           </div>
+           <div class='star'>
+               ${SVG('star-empty')}
+               ${SVG('star-full')}
+           </div>
+           <div class='star'>
+               ${SVG('star-empty')}
+               ${SVG('star-full')}
+           </div>
+   </div>
 </div>
 ` 
 
