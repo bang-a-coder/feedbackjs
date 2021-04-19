@@ -1,17 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;600&family=IBM+Plex+Sans&display=swap');
 //font-family: 'IBM Plex Mono', monospace;
+//font-family: 'IBM Plex Sans', sans-serif;
+
 body {
     background-color: #161616;
     color: whitesmoke;
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         font-family: 'IBM Plex Mono', monospace;
     }
 
     h1 {
-        font-size: 18px;
+        font-size: 16px;
+        margin: 0;
     }
-    
+
     p {
         font-family: 'IBM Plex Sans', sans-serif;
     }
@@ -19,15 +27,24 @@ body {
 
 
 .feedback-form {
+    @extend .noselect;
     position: absolute;
     z-index: 456785437895435895435895746344890778574689;
     bottom: 80px;
     right: 20px;
-    width: 300px;
+    width: 270px;
+    height: 180px;
     background-color: #393939;
-    padding: 20px;
+    padding: 15px;
     box-sizing: border-box;
     border-radius: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
 
     .stars {
         display: flex;
@@ -36,7 +53,7 @@ body {
         justify-content: center;
         align-items: center;
         align-content: center;
-        margin: 30px auto;
+        margin-top: 30px;
 
         .star {
             @extend .fade-onload;
@@ -68,18 +85,63 @@ body {
                 }
 
                 [data-name='star-full'] {
-                    opacity:1; 
+                    opacity: 1;
                 }
             }
 
         }
 
         .selected {
-            >svg[data-name='star-full']{
+            >svg[data-name='star-full'] {
                 path {
                     fill: #5A90E2;
                 }
             }
+        }
+    }
+
+    .choice {
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            align-items: center;
+            align-content: stretch;
+            font-family: 'IBM Plex Sans', sans-serif;
+            margin-top: 30px;
+
+            >#yes {
+                background-color: #5A90E2;
+
+                &:hover {
+                    background-color: #67a4ff;
+                }
+            }
+        }
+    }
+
+    .thanks {
+        .thanks-message {
+            margin-top: 20px;
+        }
+    }
+
+    .advice {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: stretch;
+        width: 100%;
+
+
+        >.button {
+            background-color: #5A90E2;
+            margin-top: 10px;
         }
     }
 
@@ -90,21 +152,46 @@ body {
     @extend .fade-onload
 }
 
+.button {
+    @extend .noselect;
+    font-family: 'IBM Plex Sans', sans-serif;
+    width: 100px;
+    box-sizing: border-box;
+    padding: 7px 0;
+    border-radius: 2px;
+    text-align: center;
+    font-weight: 700;
+    background-color: #6F6F6F;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #7a7a7a;
+    }
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+    position: relative;
+    width: 100%;
+    font-size: 15px;
+    font-family: 'IBM Plex Sans',sans-serif;
+    padding: 8px;
+    box-sizing: border-box;
+    background: #5f5f5f;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+
+    &::placeholder {
+        color: rgb(228, 228, 228);
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    &:focus {
+        outline: none;
+    }
+}
 
 
 
@@ -126,39 +213,84 @@ body {
 
 .fade-onload {
     $time: .5s;
-    -webkit-animation: fadein $time; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein $time; /* Firefox < 16 */
-     -ms-animation: fadein $time; /* Internet Explorer */
-      -o-animation: fadein $time; /* Opera < 12.1 */
-         animation: fadein $time;
+    -webkit-animation: fadein $time;
+    /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein $time;
+    /* Firefox < 16 */
+    -ms-animation: fadein $time;
+    /* Internet Explorer */
+    -o-animation: fadein $time;
+    /* Opera < 12.1 */
+    animation: fadein $time;
 
 
     @keyframes fadein {
-        from { opacity: 0; }
-        to   { opacity: 1; }
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
 
     /* Firefox < 16 */
     @-moz-keyframes fadein {
-        from { opacity: 0; }
-        to   { opacity: 1; }
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
 
     /* Safari, Chrome and Opera > 12.1 */
     @-webkit-keyframes fadein {
-        from { opacity: 0; }
-        to   { opacity: 1; }
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
 
     /* Internet Explorer */
     @-ms-keyframes fadein {
-        from { opacity: 0; }
-        to   { opacity: 1; }
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
 
     /* Opera < 12.1 */
     @-o-keyframes fadein {
-        from { opacity: 0; }
-        to   { opacity: 1; }
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
 }

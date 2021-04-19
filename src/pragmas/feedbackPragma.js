@@ -1,25 +1,11 @@
-import {html, Pragma} from 'pragmajs'
+import {html, Pragma, _e, _p} from 'pragmajs'
 import { SVG } from '../.build_assets/index'
+import {LoveTemplate, ThanksTemplate, Template, StarTemplate, AdviceTemplate} from '../.build_assets/templates'
 
 console.log('TIIIITS')
 
 
-const Template = (title) => html`
-<div class='feedback-form'>
-    <h1 class='question-uno'>${title}</h1>
-   <div class="stars"></div> 
 
-</div>
-` 
-
-const StarTemplate = ()=> {
-    return html`
-    <div class='star'>
-               ${SVG('star-empty')}
-               ${SVG('star-full')}
-    </div>
-   `
-}
 
 export class Feedback extends Pragma{
     constructor(questionUno){
@@ -34,8 +20,10 @@ export class Feedback extends Pragma{
         this.element = Template(this.questionUno).appendTo('body')
 
 
-        let stars = _p('starsPragma')
+        this.stars = _p('starsPragma')
                         .as(this.element.find('.stars'))
+                        .createWires('stars')
+                        .createEvents('judge')
                         .run(function(){
 
                             let i = 0
@@ -43,11 +31,12 @@ export class Feedback extends Pragma{
                                 i++
                                 this.contain(StarTemplate().appendTo(this))
                             }
+
                         })
                         .run(function() { 
-                            this.createWire('stars')
-                            this.on('starsChange', (v, lv) => {
+                             this.on('starsChange', (v, lv) => {
                                 this.fillStars(v)
+
                             })
 
                             this.fillStars = (i) => {
@@ -69,7 +58,7 @@ export class Feedback extends Pragma{
                             }
 
                         })
-                        .run(function(){
+                        .run(function listeners(){
                             console.log(this.children)
                             this.children.forEach((element,i) => {
                                 element.listenTo('mouseenter', () => {
@@ -81,18 +70,77 @@ export class Feedback extends Pragma{
                                     this.unhover(i)
                                 })
 
-
                                 //Make stars blue when selected
                                 element.listenTo('click', ()=>{
                                     console.log(i+1)
                                     this.children.forEach(kid => {
                                         if (kid.classArray.includes('filled')) {kid.addClass('selected')}
                                     })
+
+                                    this.triggerEvent('judge', i+1)
+
                                 })
                             })
                         })
-        
-        
-
+                        .on('judge', (rating)=>{
+                            this.logic(rating)
+                        })
     }
+
+    logic(rating){
+
+        //If rating is <=3, ask for feedback
+        if (rating<=3){
+            console.log('Hates us')
+
+            setTimeout(() => {
+                changeFacade(this.element, AdviceTemplate)
+
+                this.element.find('#send-advice').listenTo('click', ()=>{
+                    console.log(this.element.find('textarea').value)
+
+                    setTimeout(() => {
+                        changeFacade(this.element, ThanksTemplate)
+                    }, 200);
+                })
+            }, 200);
+
+        }
+
+        //If rating is >3, ask for store review
+        if (rating>3){
+            setTimeout(() => {
+                changeFacade(this.element, LoveTemplate)
+
+                this.element.onRender(()=>{
+    
+                    this.element.find('#no').listenTo('click', ()=>{
+                        setTimeout(() => {
+                            changeFacade(this.element, ThanksTemplate)
+                        }, 200);
+                    })
+        
+                    this.element.find('#yes').listenTo('click', ()=>{
+                        setTimeout(() => {
+                            changeFacade(this.element, ThanksTemplate)
+                            createTab('https://chrome.google.com/webstore/detail/fready/fbfecjjfhcgpocehenopdofhkdjfpcgl/reviews')
+                        }, 200); 
+                    })
+                })
+            }, 200);
+            
+            
+            
+        }
+    }
+}
+
+
+function createTab(link){
+    _e('a').attr('href', link).attr('target', '_blank').appendTo('body').click()
+}
+
+function changeFacade(parent, template) {
+    parent.html(' ')
+    template().appendTo(parent)
 }
