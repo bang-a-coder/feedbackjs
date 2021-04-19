@@ -63,6 +63,7 @@ export class Feedback extends Pragma{
                             }
 
                             this.hover = function(i) {
+                                // set stars to i ()
                                 this.setStars(i)
                             }
 
@@ -75,6 +76,7 @@ export class Feedback extends Pragma{
                             console.log(this.children)
                             this.children.forEach((element,i) => {
                                 element.listenTo('mouseenter', () => {
+                                    // hover over ith star
                                     this.hover(i)
                                 })
 

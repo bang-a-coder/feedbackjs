@@ -192,6 +192,7 @@
                                 };
 
                                 this.hover = function(i) {
+                                    // set stars to i ()
                                     this.setStars(i);
                                 };
 
@@ -204,6 +205,7 @@
                                 console.log(this.children);
                                 this.children.forEach((element,i) => {
                                     element.listenTo('mouseenter', () => {
+                                        // hover over ith star
                                         this.hover(i);
                                     });
 
