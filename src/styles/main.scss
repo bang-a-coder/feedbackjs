@@ -27,6 +27,7 @@ body {
     background-color: #393939;
     padding: 20px;
     box-sizing: border-box;
+    border-radius: 5px;
 
     .stars {
         display: flex;
@@ -38,20 +39,37 @@ body {
         margin: 30px auto;
 
         .star {
+            @extend .fade-onload;
             position: relative;
             width: 30px;
             height: 28px;
-            margin: 0 10px;
+            margin: 0 5px;
+            cursor: pointer;
+            z-index: 98765678745678764567876546;
 
             [data-name='star-empty'] {
-                background-color: #393939;
+                transition: all .2s ease;
+                opacity: 1;
             }
 
             [data-name='star-full'] {
+                transition: all .2s ease;
                 position: absolute;
+                opacity: 0;
                 top: 0;
                 left: 0;
                 opacity: 0;
+                z-index: -98765444;
+            }
+
+            &.filled {
+                [data-name='star-empty'] {
+                    opacity: 0;
+                }
+
+                [data-name='star-full'] {
+                    opacity:1; 
+                }
             }
 
         }
@@ -59,6 +77,10 @@ body {
 
 }
 
+.opacity {
+    opacity: 1;
+    @extend .fade-onload
+}
 
 
 
