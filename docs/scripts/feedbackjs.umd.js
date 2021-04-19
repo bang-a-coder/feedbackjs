@@ -28,13 +28,14 @@
         π: H
     });
 
-    var main = "@charset \"utf-8\";@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;600&family=IBM+Plex+Sans&display=swap);body{background-color:#161616;color:whitesmoke}body h1,body h2,body h3,body h4,body h5,body h6{font-family:'IBM Plex Mono',monospace}body h1{font-size:16px;margin:0}body p{font-family:'IBM Plex Sans',sans-serif}.feedback-form{position:absolute;z-index:456785437895435895435895746344890778574689;bottom:80px;right:20px;width:270px;height:180px;background-color:#393939;padding:20px;box-sizing:border-box;border-radius:5px;text-align:center;display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:center;align-items:stretch;align-content:stretch}.feedback-form .stars{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;align-items:center;align-content:center;margin-top:30px}.feedback-form .stars .star{position:relative;width:30px;height:28px;margin:0 5px;cursor:pointer;z-index:98765678745678764567876546}.feedback-form .stars .star [data-name='star-empty']{transition:all .2s ease;opacity:1}.feedback-form .stars .star [data-name='star-full']{transition:all .2s ease;position:absolute;opacity:0;top:0;left:0;opacity:0;z-index:-98765444}.feedback-form .stars .star.filled [data-name='star-empty']{opacity:0}.feedback-form .stars .star.filled [data-name='star-full']{opacity:1}.feedback-form .stars .selected>svg[data-name='star-full'] path{fill:#5A90E2}.feedback-form .choice .buttons{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-around;align-items:center;align-content:stretch;font-family:'IBM Plex Sans',sans-serif;margin-top:30px}.feedback-form .choice .buttons .button{width:100px;box-sizing:border-box;padding:7px 0;border-radius:2px;text-align:center;font-weight:700;background-color:#6F6F6F;cursor:pointer}.feedback-form .choice .buttons #yes.button{background-color:#5A90E2}.feedback-form .choice .buttons #yes.button:hover{background-color:#67a4ff}.feedback-form .choice .buttons .button:hover{background-color:#7a7a7a}.opacity{opacity:1}.page-container{height:100vh}.flex-center{display:flex;align-items:center;justify-content:center;flex-direction:column}.fade-onload,.feedback-form .stars .star,.opacity{-webkit-animation:fadein .5s;-moz-animation:fadein .5s;-ms-animation:fadein .5s;-o-animation:fadein .5s;animation:fadein .5s}@keyframes fadein{from{opacity:0}to{opacity:1}}@-moz-keyframes fadein{from{opacity:0}to{opacity:1}}@-webkit-keyframes fadein{from{opacity:0}to{opacity:1}}@-ms-keyframes fadein{.fade-onload from,.feedback-form .stars .star from,.opacity from{opacity:0}.fade-onload to,.feedback-form .stars .star to,.opacity to{opacity:1}}@-o-keyframes fadein{from{opacity:0}to{opacity:1}}.noselect,.feedback-form,.feedback-form .choice .buttons .button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}";
+    var main = "@charset \"utf-8\";@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;600&family=IBM+Plex+Sans&display=swap);body{background-color:#161616;color:whitesmoke}body h1,body h2,body h3,body h4,body h5,body h6{font-family:'IBM Plex Mono',monospace}body h1{font-size:16px;margin:0}body p{font-family:'IBM Plex Sans',sans-serif}.feedback-form{position:absolute;z-index:456785437895435895435895746344890778574689;bottom:80px;right:20px;width:270px;height:180px;background-color:#393939;padding:20px;box-sizing:border-box;border-radius:5px;text-align:center;display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:center;align-items:stretch;align-content:stretch}.feedback-form .stars{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;align-items:center;align-content:center;margin-top:30px}.feedback-form .stars .star{position:relative;width:30px;height:28px;margin:0 5px;cursor:pointer;z-index:98765678745678764567876546}.feedback-form .stars .star [data-name='star-empty']{transition:all .2s ease;opacity:1}.feedback-form .stars .star [data-name='star-full']{transition:all .2s ease;position:absolute;opacity:0;top:0;left:0;opacity:0;z-index:-98765444}.feedback-form .stars .star.filled [data-name='star-empty']{opacity:0}.feedback-form .stars .star.filled [data-name='star-full']{opacity:1}.feedback-form .stars .selected>svg[data-name='star-full'] path{fill:#5A90E2}.feedback-form .choice .buttons{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-around;align-items:center;align-content:stretch;font-family:'IBM Plex Sans',sans-serif;margin-top:30px}.feedback-form .choice .buttons .button{width:100px;box-sizing:border-box;padding:7px 0;border-radius:2px;text-align:center;font-weight:700;background-color:#6F6F6F;cursor:pointer}.feedback-form .choice .buttons #yes.button{background-color:#5A90E2}.feedback-form .choice .buttons #yes.button:hover{background-color:#67a4ff}.feedback-form .choice .buttons .button:hover{background-color:#7a7a7a}.feedback-form .thanks .thanks-message{margin-top:20px}.opacity{opacity:1}.page-container{height:100vh}.flex-center{display:flex;align-items:center;justify-content:center;flex-direction:column}.fade-onload,.feedback-form .stars .star,.opacity{-webkit-animation:fadein .5s;-moz-animation:fadein .5s;-ms-animation:fadein .5s;-o-animation:fadein .5s;animation:fadein .5s}@keyframes fadein{from{opacity:0}to{opacity:1}}@-moz-keyframes fadein{from{opacity:0}to{opacity:1}}@-webkit-keyframes fadein{from{opacity:0}to{opacity:1}}@-ms-keyframes fadein{.fade-onload from,.feedback-form .stars .star from,.opacity from{opacity:0}.fade-onload to,.feedback-form .stars .star to,.opacity to{opacity:1}}@-o-keyframes fadein{from{opacity:0}to{opacity:1}}.noselect,.feedback-form,.feedback-form .choice .buttons .button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}";
     var styles = {
     	main: main
     };
 
     var icons = {
     	"star-full": "<svg width=\"30\" height=\"28\" viewBox=\"0 0 30 28\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M14.72 0L10.17 9.22L0 10.69L7.36 17.87L5.62 28L14.72 23.22L23.82 28L22.08 17.87L29.44 10.7L19.27 9.22L14.72 0Z\" fill=\"white\"/>\n</svg>\n",
+    	"white-icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 260 261\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M130 260.32C58.203 260.32 0 202.117 0 130.321C0 58.524 58.203 0.321106 130 0.321106C201.798 0.321106 259.999 58.524 259.999 130.321C259.999 202.117 201.798 260.32 130 260.32Z\" fill=\"white\"/>\n<path d=\"M64 65.3184V196.281L195.284 65.3184H64Z\" fill=\"black\"/>\n<path d=\"M129.641 130.8V196.281L195.283 130.8H129.641Z\" fill=\"black\"/>\n</svg>\n",
     	"star-empty": "<svg width=\"30\" height=\"28\" viewBox=\"0 0 30 28\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M14.72 4.52L17.48 10.1L17.94 11.1L18.94 11.25L25.1 12.14L20.72 16.44L19.97 17.17L20.15 18.17L21.2 24.3L15.69 21.41L14.72 21L13.79 21.49L8.28 24.34L9.28 18.21L9.46 17.21L8.72 16.44L4.3 12.09L10.46 11.2L11.46 11.05L11.92 10.05L14.72 4.52ZM14.72 0L10.17 9.22L0 10.69L7.36 17.87L5.62 28L14.72 23.22L23.82 28L22.08 17.87L29.44 10.7L19.27 9.22L14.72 0Z\" fill=\"white\"/>\n</svg>\n"
     };
 
@@ -162,6 +163,16 @@
     `
     };
 
+
+    const ThanksTemplate = () => {
+        return X`
+        <div class='thanks fade-onload'>
+            ${SVG('white-icon')}
+            <h1 class='thanks-message'>Thanks for your time, you help make Fready better :)</h1>
+        </div>
+    `
+    };
+
     class Feedback extends q{
         constructor(questionUno){
             super();
@@ -251,14 +262,31 @@
             }
 
             if (rating>3){
-                console.log('Loves us');
-
-
                 setTimeout(() => {
                     this.element.html(' ');
 
                     LoveTemplate().appendTo(this.element); 
+
+                    this.element.onRender(()=>{
+        
+                        this.element.find('#no').listenTo('click', ()=>{
+                            console.log('no');
+
+                            setTimeout(() => {
+                               this.element.html(' ');
+
+                               ThanksTemplate().appendTo(this.element);
+
+                            }, 200);
+                        });
+            
+                        this.element.find('#yes').listenTo('click', ()=>{
+                            console.log('yes');
+                        });
+                    });
                 }, 200);
+                
+                
                 
             }
         }

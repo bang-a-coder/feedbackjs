@@ -33,6 +33,16 @@ const LoveTemplate = () =>{
     `
 }
 
+
+const ThanksTemplate = () => {
+    return html`
+        <div class='thanks fade-onload'>
+            ${SVG('white-icon')}
+            <h1 class='thanks-message'>Thanks for your time, you help make Fready better :)</h1>
+        </div>
+    `
+}
+
 export class Feedback extends Pragma{
     constructor(questionUno){
         super()
@@ -122,14 +132,31 @@ export class Feedback extends Pragma{
         }
 
         if (rating>3){
-            console.log('Loves us')
-
-
             setTimeout(() => {
                 this.element.html(' ')
 
                 LoveTemplate().appendTo(this.element) 
+
+                this.element.onRender(()=>{
+    
+                    this.element.find('#no').listenTo('click', ()=>{
+                        console.log('no')
+
+                        setTimeout(() => {
+                           this.element.html(' ')
+
+                           ThanksTemplate().appendTo(this.element)
+
+                        }, 200);
+                    })
+        
+                    this.element.find('#yes').listenTo('click', ()=>{
+                        console.log('yes')
+                    })
+                })
             }, 200);
+            
+            
             
         }
     }
