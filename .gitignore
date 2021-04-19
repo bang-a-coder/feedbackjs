@@ -4,3 +4,6 @@ node_modules/
 .pnpm/icona
 dist
 .pnp.js
+
+.DS_Store
+.DS_Store
