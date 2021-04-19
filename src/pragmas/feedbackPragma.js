@@ -21,6 +21,18 @@ const StarTemplate = ()=> {
    `
 }
 
+const LoveTemplate = () =>{
+    return html`
+    <div class='choice fade-onload'>
+        <h1 class='thanks-message'>Thanks! Mind leaving a store review?</h1>
+        <div class="buttons">
+            <div class='button' id='no'>Nop</div>
+            <div class='button' id='yes'>Sure<div>
+        </div>
+    </div>
+    `
+}
+
 export class Feedback extends Pragma{
     constructor(questionUno){
         super()
@@ -111,6 +123,14 @@ export class Feedback extends Pragma{
 
         if (rating>3){
             console.log('Loves us')
+
+
+            setTimeout(() => {
+                this.element.html(' ')
+
+                LoveTemplate().appendTo(this.element) 
+            }, 200);
+            
         }
     }
 }

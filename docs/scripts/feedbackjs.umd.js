@@ -28,7 +28,7 @@
         π: H
     });
 
-    var main = "@charset \"utf-8\";@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;600&family=IBM+Plex+Sans&display=swap);body{background-color:#161616;color:whitesmoke}body h1,body h2,body h3,body h4,body h5,body h6{font-family:'IBM Plex Mono',monospace}body h1{font-size:18px}body p{font-family:'IBM Plex Sans',sans-serif}.feedback-form{position:absolute;z-index:456785437895435895435895746344890778574689;bottom:80px;right:20px;width:300px;background-color:#393939;padding:20px;box-sizing:border-box;border-radius:5px}.feedback-form .stars{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;align-items:center;align-content:center;margin:30px auto}.feedback-form .stars .star{position:relative;width:30px;height:28px;margin:0 5px;cursor:pointer;z-index:98765678745678764567876546}.feedback-form .stars .star [data-name='star-empty']{transition:all .2s ease;opacity:1}.feedback-form .stars .star [data-name='star-full']{transition:all .2s ease;position:absolute;opacity:0;top:0;left:0;opacity:0;z-index:-98765444}.feedback-form .stars .star.filled [data-name='star-empty']{opacity:0}.feedback-form .stars .star.filled [data-name='star-full']{opacity:1}.feedback-form .stars .selected>svg[data-name='star-full'] path{fill:#5A90E2}.opacity{opacity:1}.page-container{height:100vh}.flex-center{display:flex;align-items:center;justify-content:center;flex-direction:column}.fade-onload,.feedback-form .stars .star,.opacity{-webkit-animation:fadein .5s;-moz-animation:fadein .5s;-ms-animation:fadein .5s;-o-animation:fadein .5s;animation:fadein .5s}@keyframes fadein{from{opacity:0}to{opacity:1}}@-moz-keyframes fadein{from{opacity:0}to{opacity:1}}@-webkit-keyframes fadein{from{opacity:0}to{opacity:1}}@-ms-keyframes fadein{.fade-onload from,.feedback-form .stars .star from,.opacity from{opacity:0}.fade-onload to,.feedback-form .stars .star to,.opacity to{opacity:1}}@-o-keyframes fadein{from{opacity:0}to{opacity:1}}";
+    var main = "@charset \"utf-8\";@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;600&family=IBM+Plex+Sans&display=swap);body{background-color:#161616;color:whitesmoke}body h1,body h2,body h3,body h4,body h5,body h6{font-family:'IBM Plex Mono',monospace}body h1{font-size:16px;margin:0}body p{font-family:'IBM Plex Sans',sans-serif}.feedback-form{position:absolute;z-index:456785437895435895435895746344890778574689;bottom:80px;right:20px;width:270px;height:180px;background-color:#393939;padding:20px;box-sizing:border-box;border-radius:5px;text-align:center;display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:center;align-items:stretch;align-content:stretch}.feedback-form .stars{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;align-items:center;align-content:center;margin-top:30px}.feedback-form .stars .star{position:relative;width:30px;height:28px;margin:0 5px;cursor:pointer;z-index:98765678745678764567876546}.feedback-form .stars .star [data-name='star-empty']{transition:all .2s ease;opacity:1}.feedback-form .stars .star [data-name='star-full']{transition:all .2s ease;position:absolute;opacity:0;top:0;left:0;opacity:0;z-index:-98765444}.feedback-form .stars .star.filled [data-name='star-empty']{opacity:0}.feedback-form .stars .star.filled [data-name='star-full']{opacity:1}.feedback-form .stars .selected>svg[data-name='star-full'] path{fill:#5A90E2}.feedback-form .choice .buttons{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-around;align-items:center;align-content:stretch;font-family:'IBM Plex Sans',sans-serif;margin-top:30px}.feedback-form .choice .buttons .button{width:100px;box-sizing:border-box;padding:7px 0;border-radius:2px;text-align:center;font-weight:700;background-color:#6F6F6F;cursor:pointer}.feedback-form .choice .buttons #yes.button{background-color:#5A90E2}.feedback-form .choice .buttons #yes.button:hover{background-color:#67a4ff}.feedback-form .choice .buttons .button:hover{background-color:#7a7a7a}.opacity{opacity:1}.page-container{height:100vh}.flex-center{display:flex;align-items:center;justify-content:center;flex-direction:column}.fade-onload,.feedback-form .stars .star,.opacity{-webkit-animation:fadein .5s;-moz-animation:fadein .5s;-ms-animation:fadein .5s;-o-animation:fadein .5s;animation:fadein .5s}@keyframes fadein{from{opacity:0}to{opacity:1}}@-moz-keyframes fadein{from{opacity:0}to{opacity:1}}@-webkit-keyframes fadein{from{opacity:0}to{opacity:1}}@-ms-keyframes fadein{.fade-onload from,.feedback-form .stars .star from,.opacity from{opacity:0}.fade-onload to,.feedback-form .stars .star to,.opacity to{opacity:1}}@-o-keyframes fadein{from{opacity:0}to{opacity:1}}.noselect,.feedback-form,.feedback-form .choice .buttons .button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}";
     var styles = {
     	main: main
     };
@@ -150,6 +150,18 @@
    `
     };
 
+    const LoveTemplate = () =>{
+        return X`
+    <div class='choice fade-onload'>
+        <h1 class='thanks-message'>Thanks! Mind leaving a store review?</h1>
+        <div class="buttons">
+            <div class='button' id='no'>Nop</div>
+            <div class='button' id='yes'>Sure<div>
+        </div>
+    </div>
+    `
+    };
+
     class Feedback extends q{
         constructor(questionUno){
             super();
@@ -240,6 +252,14 @@
 
             if (rating>3){
                 console.log('Loves us');
+
+
+                setTimeout(() => {
+                    this.element.html(' ');
+
+                    LoveTemplate().appendTo(this.element); 
+                }, 200);
+                
             }
         }
     }
