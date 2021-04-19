@@ -45,7 +45,7 @@ export const AdviceTemplate = () => {
     <div class='advice fade-onload'>
         <textarea name="myInput" maxlength="500" required placeholder="How can we improve?"></textarea>
 
-        <div class='button'>Send</div>
+        <div class='button' id='send-advice'>Send</div>
     </div>
     `
 

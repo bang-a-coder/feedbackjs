@@ -88,18 +88,24 @@ export class Feedback extends Pragma{
     }
 
     logic(rating){
+
+        //If rating is <=3, ask for feedback
         if (rating<=3){
             console.log('Hates us')
 
             setTimeout(() => {
                 changeFacade(this.element, AdviceTemplate)
+
+                this.element.find('#send-advice').listenTo('click', ()=>{
+                    console.log(this.element.find('textarea').value)
+
+                    setTimeout(() => {
+                        changeFacade(this.element, ThanksTemplate)
+                    }, 200);
+                })
             }, 200);
 
         }
-
-
-
-        
 
         //If rating is >3, ask for store review
         if (rating>3){
