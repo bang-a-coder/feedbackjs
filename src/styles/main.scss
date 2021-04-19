@@ -35,7 +35,7 @@ body {
     width: 270px;
     height: 180px;
     background-color: #393939;
-    padding: 20px;
+    padding: 15px;
     box-sizing: border-box;
     border-radius: 5px;
     text-align: center;
@@ -119,16 +119,29 @@ body {
                     background-color: #67a4ff;
                 }
             }
-
-            
-
-
         }
     }
 
     .thanks {
         .thanks-message {
             margin-top: 20px;
+        }
+    }
+
+    .advice {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: stretch;
+        width: 100%;
+
+
+        >.button {
+            background-color: #5A90E2;
+            margin-top: 10px;
         }
     }
 
@@ -156,34 +169,29 @@ body {
     }
 }
 
-input[type=text] {
-    padding: 0;
-    height: 30px;
+textarea {
+    height: 100px;
+    resize: none;
     position: relative;
-    left: 0;
-    outline: none;
-    border: 1px solid #cdcdcd;
-    border-color: rgba(0, 0, 0, .15);
-    background-color: white;
-    font-size: 16px;
+    width: 100%;
+    font-size: 15px;
+    font-family: 'IBM Plex Sans',sans-serif;
+    padding: 8px;
+    box-sizing: border-box;
+    background: #5f5f5f;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+
+    &::placeholder {
+        color: rgb(228, 228, 228);
+    }
+
+
+    &:focus {
+        outline: none;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

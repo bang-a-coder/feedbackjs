@@ -43,8 +43,10 @@ export const ThanksTemplate = () => {
 export const AdviceTemplate = () => {
     return html`
     <div class='advice'>
-        <input type="text" class="advancedSearchTextBox" />
+        <textarea name="myInput" maxlength="500" required placeholder="How can we improve?"></textarea>
+
         <div class='button'>Send</div>
     </div>
     `
+
 }

@@ -98,6 +98,9 @@ export class Feedback extends Pragma{
         }
 
 
+
+        
+
         //If rating is >3, ask for store review
         if (rating>3){
             setTimeout(() => {
