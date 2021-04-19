@@ -131,9 +131,6 @@
         window[key] = val;
     }
 
-    console.log('TIIIITS');
-
-
     const Template = (title) => X`
 <div class='feedback-form'>
     <h1 class='question-uno'>${title}</h1>
@@ -172,6 +169,11 @@
         </div>
     `
     };
+
+    console.log('TIIIITS');
+
+
+
 
     class Feedback extends q{
         constructor(questionUno){

@@ -1,47 +1,11 @@
 import {html, Pragma, _e} from 'pragmajs'
 import { SVG } from '../.build_assets/index'
+import {LoveTemplate, ThanksTemplate, Template, StarTemplate} from '../.build_assets/templates'
 
 console.log('TIIIITS')
 
 
-const Template = (title) => html`
-<div class='feedback-form'>
-    <h1 class='question-uno'>${title}</h1>
-   <div class="stars"></div> 
 
-</div>
-` 
-
-const StarTemplate = ()=> {
-    return html`
-    <div class='star'>
-               ${SVG('star-empty')}
-               ${SVG('star-full')}
-    </div>
-   `
-}
-
-const LoveTemplate = () =>{
-    return html`
-    <div class='choice fade-onload'>
-        <h1 class='thanks-message'>Thanks! Mind leaving a store review?</h1>
-        <div class="buttons">
-            <div class='button' id='no'>Nop</div>
-            <div class='button' id='yes'>Sure<div>
-        </div>
-    </div>
-    `
-}
-
-
-const ThanksTemplate = () => {
-    return html`
-        <div class='thanks fade-onload'>
-            ${SVG('white-icon')}
-            <h1 class='thanks-message'>Thanks for your time, you help make Fready better :)</h1>
-        </div>
-    `
-}
 
 export class Feedback extends Pragma{
     constructor(questionUno){
