@@ -156,6 +156,7 @@
             this.questionUno = questionUno;
 
             this.visualise();
+            this.logic(3);
         }
 
         visualise(){
@@ -163,8 +164,10 @@
             this.element = Template(this.questionUno).appendTo('body');
 
 
-            _p('starsPragma')
+            this.stars = _p('starsPragma')
                             .as(this.element.find('.stars'))
+                            .createWires('stars')
+                            .createEvents('judge')
                             .run(function(){
 
                                 let i = 0;
@@ -172,11 +175,12 @@
                                     i++;
                                     this.contain(StarTemplate().appendTo(this));
                                 }
+
                             })
                             .run(function() { 
-                                this.createWire('stars');
-                                this.on('starsChange', (v, lv) => {
+                                 this.on('starsChange', (v, lv) => {
                                     this.fillStars(v);
+
                                 });
 
                                 this.fillStars = (i) => {
@@ -198,7 +202,7 @@
                                 };
 
                             })
-                            .run(function(){
+                            .run(function listeners(){
                                 console.log(this.children);
                                 this.children.forEach((element,i) => {
                                     element.listenTo('mouseenter', () => {
@@ -210,19 +214,33 @@
                                         this.unhover(i);
                                     });
 
-
                                     //Make stars blue when selected
                                     element.listenTo('click', ()=>{
                                         console.log(i+1);
                                         this.children.forEach(kid => {
                                             if (kid.classArray.includes('filled')) {kid.addClass('selected');}
                                         });
+
+                                        this.triggerEvent('judge', i+1);
+
                                     });
                                 });
+                            })
+                            .on('judge', (rating)=>{
+                                this.logic(rating);
                             });
-            
-            
+        }
 
+        logic(rating){
+            if (rating<=3){
+                console.log('Hates us');
+
+
+            }
+
+            if (rating>3){
+                console.log('Loves us');
+            }
         }
     }
 
