@@ -42,10 +42,7 @@ export class Feedback extends Pragma{
                             while (i<5) {
                                 i++
                                 this.contain(StarTemplate().appendTo(this))
-                                // this.append(StarTemplate())
                             }
-
-
                         })
                         .run(function() { 
                             this.createWire('stars')
@@ -83,8 +80,19 @@ export class Feedback extends Pragma{
                                 element.listenTo('mouseleave', () => {
                                     this.unhover(i)
                                 })
+
+
+                                //Make stars blue when selected
+                                element.listenTo('click', ()=>{
+                                    console.log(i+1)
+                                    this.children.forEach(kid => {
+                                        if (kid.classArray.includes('filled')) {kid.addClass('selected')}
+                                    })
+                                })
                             })
                         })
+        
+        
 
     }
 }
