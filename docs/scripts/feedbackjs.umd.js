@@ -172,7 +172,7 @@
 
     const AdviceTemplate = () => {
         return X`
-    <div class='advice'>
+    <div class='advice fade-onload'>
         <textarea name="myInput" maxlength="500" required placeholder="How can we improve?"></textarea>
 
         <div class='button'>Send</div>
