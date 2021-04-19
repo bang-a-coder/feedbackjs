@@ -270,18 +270,21 @@
                     this.element.onRender(()=>{
         
                         this.element.find('#no').listenTo('click', ()=>{
-                            console.log('no');
-
                             setTimeout(() => {
                                this.element.html(' ');
-
                                ThanksTemplate().appendTo(this.element);
-
                             }, 200);
                         });
             
                         this.element.find('#yes').listenTo('click', ()=>{
-                            console.log('yes');
+                            setTimeout(() => {
+                                this.element.html(' ');
+
+                                ThanksTemplate().appendTo(this.element);
+
+                                createTab('https://chrome.google.com/webstore/detail/fready/fbfecjjfhcgpocehenopdofhkdjfpcgl/reviews');
+
+                            }, 200); 
                         });
                     });
                 }, 200);
@@ -290,6 +293,11 @@
                 
             }
         }
+    }
+
+
+    function createTab(link){
+        j('a').attr('href', link).attr('target', '_blank').appendTo('body').click();
     }
 
     function _feedback(){

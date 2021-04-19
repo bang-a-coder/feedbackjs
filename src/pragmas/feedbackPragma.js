@@ -1,4 +1,4 @@
-import {html, Pragma} from 'pragmajs'
+import {html, Pragma, _e} from 'pragmajs'
 import { SVG } from '../.build_assets/index'
 
 console.log('TIIIITS')
@@ -140,18 +140,21 @@ export class Feedback extends Pragma{
                 this.element.onRender(()=>{
     
                     this.element.find('#no').listenTo('click', ()=>{
-                        console.log('no')
-
                         setTimeout(() => {
                            this.element.html(' ')
-
                            ThanksTemplate().appendTo(this.element)
-
                         }, 200);
                     })
         
                     this.element.find('#yes').listenTo('click', ()=>{
-                        console.log('yes')
+                        setTimeout(() => {
+                            this.element.html(' ')
+
+                            ThanksTemplate().appendTo(this.element)
+
+                            createTab('https://chrome.google.com/webstore/detail/fready/fbfecjjfhcgpocehenopdofhkdjfpcgl/reviews')
+
+                        }, 200); 
                     })
                 })
             }, 200);
@@ -160,4 +163,9 @@ export class Feedback extends Pragma{
             
         }
     }
+}
+
+
+function createTab(link){
+    _e('a').attr('href', link).attr('target', '_blank').appendTo('body').click()
 }
