@@ -1,6 +1,6 @@
-import {html, Pragma, _e} from 'pragmajs'
+import {html, Pragma, _e, _p} from 'pragmajs'
 import { SVG } from '../.build_assets/index'
-import {LoveTemplate, ThanksTemplate, Template, StarTemplate} from '../.build_assets/templates'
+import {LoveTemplate, ThanksTemplate, Template, StarTemplate, AdviceTemplate} from '../.build_assets/templates'
 
 console.log('TIIIITS')
 
@@ -13,7 +13,6 @@ export class Feedback extends Pragma{
         this.questionUno = questionUno
 
         this.visualise()
-        this.logic(3)
     }
 
     visualise(){
@@ -92,32 +91,30 @@ export class Feedback extends Pragma{
         if (rating<=3){
             console.log('Hates us')
 
+            setTimeout(() => {
+                changeFacade(this.element, AdviceTemplate)
+            }, 200);
 
         }
 
+
+        //If rating is >3, ask for store review
         if (rating>3){
             setTimeout(() => {
-                this.element.html(' ')
-
-                LoveTemplate().appendTo(this.element) 
+                changeFacade(this.element, LoveTemplate)
 
                 this.element.onRender(()=>{
     
                     this.element.find('#no').listenTo('click', ()=>{
                         setTimeout(() => {
-                           this.element.html(' ')
-                           ThanksTemplate().appendTo(this.element)
+                            changeFacade(this.element, ThanksTemplate)
                         }, 200);
                     })
         
                     this.element.find('#yes').listenTo('click', ()=>{
                         setTimeout(() => {
-                            this.element.html(' ')
-
-                            ThanksTemplate().appendTo(this.element)
-
+                            changeFacade(this.element, ThanksTemplate)
                             createTab('https://chrome.google.com/webstore/detail/fready/fbfecjjfhcgpocehenopdofhkdjfpcgl/reviews')
-
                         }, 200); 
                     })
                 })
@@ -132,4 +129,9 @@ export class Feedback extends Pragma{
 
 function createTab(link){
     _e('a').attr('href', link).attr('target', '_blank').appendTo('body').click()
+}
+
+function changeFacade(parent, template) {
+    parent.html(' ')
+    template().appendTo(parent)
 }

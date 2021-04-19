@@ -39,3 +39,12 @@ export const ThanksTemplate = () => {
         </div>
     `
 }
+
+export const AdviceTemplate = () => {
+    return html`
+    <div class='advice'>
+        <input type="text" class="advancedSearchTextBox" />
+        <div class='button'>Send</div>
+    </div>
+    `
+}
