@@ -33,7 +33,7 @@ export class Feedback extends Pragma{
                             }
 
                         })
-                        .run(function() { 
+                        .run(function starSystem() { 
                              this.on('starsChange', (v, lv) => {
                                 this.fillStars(v)
 
@@ -85,6 +85,12 @@ export class Feedback extends Pragma{
                         .on('judge', (rating)=>{
                             this.logic(rating)
                         })
+        
+        //Close button
+        this.element.find(`[data-name='close-icon']`).listenTo('click', ()=>{
+            this.element.addClass('fadeout')
+            setTimeout(() => {this.element.addClass('display-none')}, 200);
+        })
     }
 
     logic(rating){
@@ -94,13 +100,13 @@ export class Feedback extends Pragma{
             console.log('Hates us')
 
             setTimeout(() => {
-                changeFacade(this.element, AdviceTemplate)
+                changeFacade(this.element.find('.content'), AdviceTemplate)
 
                 this.element.find('#send-advice').listenTo('click', ()=>{
                     console.log(this.element.find('textarea').value)
 
                     setTimeout(() => {
-                        changeFacade(this.element, ThanksTemplate)
+                        changeFacade(this.element.find('.content'), ThanksTemplate)
                     }, 200);
                 })
             }, 200);
@@ -110,19 +116,19 @@ export class Feedback extends Pragma{
         //If rating is >3, ask for store review
         if (rating>3){
             setTimeout(() => {
-                changeFacade(this.element, LoveTemplate)
+                changeFacade(this.element.find('.content'), LoveTemplate)
 
                 this.element.onRender(()=>{
     
                     this.element.find('#no').listenTo('click', ()=>{
                         setTimeout(() => {
-                            changeFacade(this.element, ThanksTemplate)
+                            changeFacade(this.element.find('.content'), ThanksTemplate)
                         }, 200);
                     })
         
                     this.element.find('#yes').listenTo('click', ()=>{
                         setTimeout(() => {
-                            changeFacade(this.element, ThanksTemplate)
+                            changeFacade(this.element.find('.content'), ThanksTemplate)
                             createTab('https://chrome.google.com/webstore/detail/fready/fbfecjjfhcgpocehenopdofhkdjfpcgl/reviews')
                         }, 200); 
                     })
@@ -144,3 +150,5 @@ function changeFacade(parent, template) {
     parent.html(' ')
     template().appendTo(parent)
 }
+
+function fade(element){(element.opacity-=.1)<0?element.display="none":setTimeout(fade(element),40)}

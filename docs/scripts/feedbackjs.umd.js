@@ -28,7 +28,7 @@
         π: H
     });
 
-    var main = "@charset \"utf-8\";@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;600&family=IBM+Plex+Sans&display=swap);body{background-color:#161616;color:whitesmoke}body h1,body h2,body h3,body h4,body h5,body h6{font-family:'IBM Plex Mono',monospace}body h1{font-size:16px;margin:0}body p{font-family:'IBM Plex Sans',sans-serif}.feedback-form{position:absolute;z-index:456785437895435895435895746344890778574689;bottom:80px;right:20px;width:270px;height:180px;background-color:#393939;padding:15px;box-sizing:border-box;border-radius:5px;text-align:center;display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:center;align-items:center;align-content:stretch}.feedback-form .stars{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;align-items:center;align-content:center;margin-top:30px}.feedback-form .stars .star{position:relative;width:30px;height:28px;margin:0 5px;cursor:pointer;z-index:98765678745678764567876546}.feedback-form .stars .star [data-name='star-empty']{transition:all .2s ease;opacity:1}.feedback-form .stars .star [data-name='star-full']{transition:all .2s ease;position:absolute;opacity:0;top:0;left:0;opacity:0;z-index:-98765444}.feedback-form .stars .star.filled [data-name='star-empty']{opacity:0}.feedback-form .stars .star.filled [data-name='star-full']{opacity:1}.feedback-form .stars .selected>svg[data-name='star-full'] path{fill:#5A90E2}.feedback-form .choice .buttons{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-around;align-items:center;align-content:stretch;font-family:'IBM Plex Sans',sans-serif;margin-top:30px}.feedback-form .choice .buttons>#yes{background-color:#5A90E2}.feedback-form .choice .buttons>#yes:hover{background-color:#67a4ff}.feedback-form .thanks .thanks-message{margin-top:20px}.feedback-form .advice{position:relative;display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:flex-start;align-items:center;align-content:stretch;width:100%}.feedback-form .advice>.button{background-color:#5A90E2;margin-top:10px}.opacity{opacity:1}.button{font-family:'IBM Plex Sans',sans-serif;width:100px;box-sizing:border-box;padding:7px 0;border-radius:2px;text-align:center;font-weight:700;background-color:#6F6F6F;cursor:pointer}.button:hover{background-color:#7a7a7a}textarea{height:100px;resize:none;position:relative;width:100%;font-size:15px;font-family:'IBM Plex Sans',sans-serif;padding:8px;box-sizing:border-box;background:#5f5f5f;color:#fff;border:0;border-radius:3px}textarea::placeholder{color:#e4e4e4}textarea:focus{outline:none}.page-container{height:100vh}.flex-center{display:flex;align-items:center;justify-content:center;flex-direction:column}.fade-onload,.feedback-form .stars .star,.opacity{-webkit-animation:fadein .5s;-moz-animation:fadein .5s;-ms-animation:fadein .5s;-o-animation:fadein .5s;animation:fadein .5s}@keyframes fadein{from{opacity:0}to{opacity:1}}@-moz-keyframes fadein{from{opacity:0}to{opacity:1}}@-webkit-keyframes fadein{from{opacity:0}to{opacity:1}}@-ms-keyframes fadein{.fade-onload from,.feedback-form .stars .star from,.opacity from{opacity:0}.fade-onload to,.feedback-form .stars .star to,.opacity to{opacity:1}}@-o-keyframes fadein{from{opacity:0}to{opacity:1}}.noselect,.feedback-form,.button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}";
+    var main = "@charset \"utf-8\";@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;600&family=IBM+Plex+Sans&display=swap);body{background-color:#161616;color:whitesmoke}body h1,body h2,body h3,body h4,body h5,body h6{font-family:'IBM Plex Mono',monospace}body h1{font-size:16px;margin:0}body p{font-family:'IBM Plex Sans',sans-serif}.feedback-form{position:absolute;z-index:456785437895435895435895746344890778574689;bottom:80px;right:20px;width:270px;height:190px;background-color:#393939;padding:15px;box-sizing:border-box;border-radius:5px;opacity:1;transition:all ease .2}.feedback-form [data-name='close-icon']{position:absolute;top:8px;right:8px;height:auto;width:11px;opacity:70%;cursor:pointer;transition:all ease .1s}.feedback-form [data-name='close-icon']:hover{opacity:1}.feedback-form .content{width:100%;height:100%;text-align:center;display:flex;flex-direction:column;flex-wrap:nowrap;text-align:center;display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:center;align-items:center;align-content:stretch;justify-content:center;align-items:center;align-content:stretch}.feedback-form .stars{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;align-items:center;align-content:center;margin-top:30px}.feedback-form .stars .star{position:relative;width:30px;height:28px;margin:0 5px;cursor:pointer;z-index:98765678745678764567876546}.feedback-form .stars .star [data-name='star-empty']{transition:all .2s ease;opacity:1}.feedback-form .stars .star [data-name='star-full']{transition:all .2s ease;position:absolute;opacity:0;top:0;left:0;opacity:0;z-index:-98765444}.feedback-form .stars .star.filled [data-name='star-empty']{opacity:0}.feedback-form .stars .star.filled [data-name='star-full']{opacity:1}.feedback-form .stars .selected>svg[data-name='star-full'] path{fill:#5A90E2}.feedback-form .choice .buttons{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-around;align-items:center;align-content:stretch;font-family:'IBM Plex Sans',sans-serif;margin-top:30px}.feedback-form .choice .buttons>#yes{background-color:#5A90E2}.feedback-form .choice .buttons>#yes:hover{background-color:#67a4ff}.feedback-form .thanks .thanks-message{margin-top:20px}.feedback-form .advice{position:relative;display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:flex-start;align-items:center;align-content:stretch;width:100%}.feedback-form .advice>.button{background-color:#5A90E2;margin-top:10px}.opacity{opacity:1}.button{font-family:'IBM Plex Sans',sans-serif;width:100px;box-sizing:border-box;padding:7px 0;border-radius:2px;text-align:center;font-weight:700;background-color:#6F6F6F;cursor:pointer}.button:hover{background-color:#7a7a7a}textarea{height:100px;resize:none;position:relative;width:100%;font-size:15px;font-family:'IBM Plex Sans',sans-serif;padding:8px;box-sizing:border-box;background:#5f5f5f;color:#fff;border:0;border-radius:3px}textarea::placeholder{color:#e4e4e4}textarea:focus{outline:none}.page-container{height:100vh}.flex-center{display:flex;align-items:center;justify-content:center;flex-direction:column}.fade-onload,.feedback-form .stars .star,.opacity{-webkit-animation:fadein .5s;-moz-animation:fadein .5s;-ms-animation:fadein .5s;-o-animation:fadein .5s;animation:fadein .5s}@keyframes fadein{from{opacity:0}to{opacity:1}}@-moz-keyframes fadein{from{opacity:0}to{opacity:1}}@-webkit-keyframes fadein{from{opacity:0}to{opacity:1}}@-ms-keyframes fadein{.fade-onload from,.feedback-form .stars .star from,.opacity from{opacity:0}.fade-onload to,.feedback-form .stars .star to,.opacity to{opacity:1}}@-o-keyframes fadein{from{opacity:0}to{opacity:1}}.noselect,.feedback-form,.button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.fadeout{-webkit-animation:fadeout .5s;-moz-animation:fadeout .5s;-ms-animation:fadeout .5s;-o-animation:fadeout .5s;animation:fadeout .5s;opacity:0}@keyframes fadeout{from{opacity:1}to{opacity:0}}@-moz-keyframes fadeout{from{opacity:1}to{opacity:0}}@-webkit-keyframes fadeout{from{opacity:1}to{opacity:0}}@-ms-keyframes fadeout{.fadeout from{opacity:1}.fadeout to{opacity:0}}@-o-keyframes fadeout{from{opacity:1}to{opacity:0}}.display-none{display:none}";
     var styles = {
     	main: main
     };
@@ -134,11 +134,15 @@
 
     const Template = (title) => X`
 <div class='feedback-form'>
-    <h1 class='question-uno'>${title}</h1>
-   <div class="stars"></div> 
+    ${SVG('close-icon')}
+    <div class="content">
+        <h1 class='question-uno'>${title}</h1>
+        <div class="stars"></div>
+    </div>
 
 </div>
 `; 
+
 
     const StarTemplate = ()=> {
         return X`
@@ -213,7 +217,7 @@
                                 }
 
                             })
-                            .run(function() { 
+                            .run(function starSystem() { 
                                  this.on('starsChange', (v, lv) => {
                                     this.fillStars(v);
 
@@ -265,6 +269,12 @@
                             .on('judge', (rating)=>{
                                 this.logic(rating);
                             });
+            
+            //Close button
+            this.element.find(`[data-name='close-icon']`).listenTo('click', ()=>{
+                this.element.addClass('fadeout');
+                setTimeout(() => {this.element.addClass('display-none');}, 200);
+            });
         }
 
         logic(rating){
@@ -274,13 +284,13 @@
                 console.log('Hates us');
 
                 setTimeout(() => {
-                    changeFacade(this.element, AdviceTemplate);
+                    changeFacade(this.element.find('.content'), AdviceTemplate);
 
                     this.element.find('#send-advice').listenTo('click', ()=>{
                         console.log(this.element.find('textarea').value);
 
                         setTimeout(() => {
-                            changeFacade(this.element, ThanksTemplate);
+                            changeFacade(this.element.find('.content'), ThanksTemplate);
                         }, 200);
                     });
                 }, 200);
@@ -290,19 +300,19 @@
             //If rating is >3, ask for store review
             if (rating>3){
                 setTimeout(() => {
-                    changeFacade(this.element, LoveTemplate);
+                    changeFacade(this.element.find('.content'), LoveTemplate);
 
                     this.element.onRender(()=>{
         
                         this.element.find('#no').listenTo('click', ()=>{
                             setTimeout(() => {
-                                changeFacade(this.element, ThanksTemplate);
+                                changeFacade(this.element.find('.content'), ThanksTemplate);
                             }, 200);
                         });
             
                         this.element.find('#yes').listenTo('click', ()=>{
                             setTimeout(() => {
-                                changeFacade(this.element, ThanksTemplate);
+                                changeFacade(this.element.find('.content'), ThanksTemplate);
                                 createTab('https://chrome.google.com/webstore/detail/fready/fbfecjjfhcgpocehenopdofhkdjfpcgl/reviews');
                             }, 200); 
                         });

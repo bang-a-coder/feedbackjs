@@ -3,11 +3,15 @@ import { SVG } from '../.build_assets/index'
 
 export const Template = (title) => html`
 <div class='feedback-form'>
-    <h1 class='question-uno'>${title}</h1>
-   <div class="stars"></div> 
+    ${SVG('close-icon')}
+    <div class="content">
+        <h1 class='question-uno'>${title}</h1>
+        <div class="stars"></div>
+    </div>
 
 </div>
 ` 
+
 
 export const StarTemplate = ()=> {
     return html`
