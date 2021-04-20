@@ -8,9 +8,12 @@ console.log('TIIIITS')
 
 
 export class Feedback extends Pragma{
-    constructor(questionUno){
+    constructor(starsCopy, ratingCopy, feedbackPlaceholder, thanksCopy){
         super()
-        this.questionUno = questionUno
+        this.starsCopy = starsCopy
+        this.ratingCopy = ratingCopy
+        this.feedbackPlaceholder = feedbackPlaceholder
+        this.thanksCopy = thanksCopy
         this.data = {
             rating: null, //1-5 stars, do they love us?
             review: null, //true/false , did they go to review us on the store?
@@ -25,7 +28,7 @@ export class Feedback extends Pragma{
 
         let FeedbackOG = this
 
-        this.element = Template(this.questionUno).appendTo('body')
+        this.element = Template(this.starsCopy).appendTo('body')
 
         this.createEvent('data')
 
@@ -108,7 +111,7 @@ export class Feedback extends Pragma{
             console.log('Hates us')
 
             setTimeout(() => {
-                changeFacade(this.element.find('.content'), AdviceTemplate)
+                changeFacade(this.element.find('.content'), AdviceTemplate, this.feedbackPlaceholder)
 
                 this.element.find('#send-advice').listenTo('click', ()=>{
                     console.log(this.element.find('textarea').value)
@@ -116,7 +119,7 @@ export class Feedback extends Pragma{
                     this.data.feedback = this.element.find('textarea').value 
 
                     setTimeout(() => {
-                        changeFacade(this.element.find('.content'), ThanksTemplate)
+                        changeFacade(this.element.find('.content'), ThanksTemplate, this.thanksCopy)
                         this.close(5000)
                     }, 200);
                 })
@@ -127,14 +130,14 @@ export class Feedback extends Pragma{
         //If rating is >3, ask for store review
         if (rating>3){
             setTimeout(() => {
-                changeFacade(this.element.find('.content'), LoveTemplate)
+                changeFacade(this.element.find('.content'), LoveTemplate, this.ratingCopy)
 
                 this.element.onRender(()=>{
     
                     this.element.find('#no').listenTo('click', ()=>{
                         setTimeout(() => {
                             this.data.review = false
-                            changeFacade(this.element.find('.content'), ThanksTemplate)
+                            changeFacade(this.element.find('.content'), ThanksTemplate, this.thanksCopy)
                             this.close(5000)
                         }, 200);
                     })
@@ -142,7 +145,7 @@ export class Feedback extends Pragma{
                     this.element.find('#yes').listenTo('click', ()=>{
                         setTimeout(() => {
                             this.data.review = true
-                            changeFacade(this.element.find('.content'), ThanksTemplate)
+                            changeFacade(this.element.find('.content'), ThanksTemplate, this.thanksCopy)
                             createTab('https://chrome.google.com/webstore/detail/fready/fbfecjjfhcgpocehenopdofhkdjfpcgl/reviews')
                             this.close(5000)
                         }, 200); 
@@ -158,8 +161,6 @@ export class Feedback extends Pragma{
     close(time){
         setTimeout(() => {
             this.element.addClass('fadeout')
-
-            // this.element.addClass('display-none')
             this.triggerEvent('data')
         }, time);
     }
@@ -170,9 +171,9 @@ function createTab(link){
     _e('a').attr('href', link).attr('target', '_blank').appendTo('body').click()
 }
 
-function changeFacade(parent, template) {
+function changeFacade(parent, template, copy = undefined) {
     parent.html(' ')
-    template().appendTo(parent)
+    template(copy).appendTo(parent)
 }
 
 function fade(element){(element.opacity-=.1)<0?element.display="none":setTimeout(fade(element),40)}

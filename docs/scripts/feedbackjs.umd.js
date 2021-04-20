@@ -153,10 +153,10 @@
    `
     };
 
-    const LoveTemplate = () =>{
+    const LoveTemplate = (copy) =>{
         return X`
     <div class='choice fade-onload'>
-        <h1 class='thanks-message'>Thanks! Mind leaving a store review?</h1>
+        <h1 class='thanks-message'>${copy}</h1>
         <div class="buttons">
             <div class='button' id='no'>Nop</div>
             <div class='button' id='yes'>Sure<div>
@@ -166,19 +166,19 @@
     };
 
 
-    const ThanksTemplate = () => {
+    const ThanksTemplate = (copy) => {
         return X`
         <div class='thanks fade-onload'>
             ${SVG('white-icon')}
-            <h1 class='thanks-message'>Thanks for your time, you help make Fready better :)</h1>
+            <h1 class='thanks-message'>${copy}</h1>
         </div>
     `
     };
 
-    const AdviceTemplate = () => {
+    const AdviceTemplate = (copy) => {
         return X`
     <div class='advice fade-onload'>
-        <textarea name="myInput" maxlength="500" required placeholder="How can we improve?"></textarea>
+        <textarea name="myInput" maxlength="500" required placeholder="${copy}"></textarea>
 
         <div class='button' id='send-advice'>Send</div>
     </div>
@@ -192,9 +192,12 @@
 
 
     class Feedback extends q{
-        constructor(questionUno){
+        constructor(starsCopy, ratingCopy, feedbackPlaceholder, thanksCopy){
             super();
-            this.questionUno = questionUno;
+            this.starsCopy = starsCopy;
+            this.ratingCopy = ratingCopy;
+            this.feedbackPlaceholder = feedbackPlaceholder;
+            this.thanksCopy = thanksCopy;
             this.data = {
                 rating: null, //1-5 stars, do they love us?
                 review: null, //true/false , did they go to review us on the store?
@@ -209,7 +212,7 @@
 
             let FeedbackOG = this;
 
-            this.element = Template(this.questionUno).appendTo('body');
+            this.element = Template(this.starsCopy).appendTo('body');
 
             this.createEvent('data');
 
@@ -292,7 +295,7 @@
                 console.log('Hates us');
 
                 setTimeout(() => {
-                    changeFacade(this.element.find('.content'), AdviceTemplate);
+                    changeFacade(this.element.find('.content'), AdviceTemplate, this.feedbackPlaceholder);
 
                     this.element.find('#send-advice').listenTo('click', ()=>{
                         console.log(this.element.find('textarea').value);
@@ -300,7 +303,7 @@
                         this.data.feedback = this.element.find('textarea').value; 
 
                         setTimeout(() => {
-                            changeFacade(this.element.find('.content'), ThanksTemplate);
+                            changeFacade(this.element.find('.content'), ThanksTemplate, this.thanksCopy);
                             this.close(5000);
                         }, 200);
                     });
@@ -311,14 +314,14 @@
             //If rating is >3, ask for store review
             if (rating>3){
                 setTimeout(() => {
-                    changeFacade(this.element.find('.content'), LoveTemplate);
+                    changeFacade(this.element.find('.content'), LoveTemplate, this.ratingCopy);
 
                     this.element.onRender(()=>{
         
                         this.element.find('#no').listenTo('click', ()=>{
                             setTimeout(() => {
                                 this.data.review = false;
-                                changeFacade(this.element.find('.content'), ThanksTemplate);
+                                changeFacade(this.element.find('.content'), ThanksTemplate, this.thanksCopy);
                                 this.close(5000);
                             }, 200);
                         });
@@ -326,7 +329,7 @@
                         this.element.find('#yes').listenTo('click', ()=>{
                             setTimeout(() => {
                                 this.data.review = true;
-                                changeFacade(this.element.find('.content'), ThanksTemplate);
+                                changeFacade(this.element.find('.content'), ThanksTemplate, this.thanksCopy);
                                 createTab('https://chrome.google.com/webstore/detail/fready/fbfecjjfhcgpocehenopdofhkdjfpcgl/reviews');
                                 this.close(5000);
                             }, 200); 
@@ -342,8 +345,6 @@
         close(time){
             setTimeout(() => {
                 this.element.addClass('fadeout');
-
-                // this.element.addClass('display-none')
                 this.triggerEvent('data');
             }, time);
         }
@@ -354,9 +355,9 @@
         j('a').attr('href', link).attr('target', '_blank').appendTo('body').click();
     }
 
-    function changeFacade(parent, template) {
+    function changeFacade(parent, template, copy = undefined) {
         parent.html(' ');
-        template().appendTo(parent);
+        template(copy).appendTo(parent);
     }
 
     function _feedback(){

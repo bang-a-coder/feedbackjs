@@ -4,7 +4,12 @@ feedbackjs.injectStyle('main')
 console.log(_page.displayWrapper)
 console.log(_page.display)
 
-feedbackjs._feedback('How satisfied are you with Fready?')
+feedbackjs._feedback(
+    'How satisfied are you with Fready?',   //Rating question
+    'Thanks! Mind leaving a store review?', //App store rating copy
+    'How can we improve?', //feedback textbox placeholder
+    'Thanks for your time! You help make Fready better:)' //Thank you copy
+    )
 
 console.log(pragmas.Feedback)
 _page.display
@@ -25,3 +30,4 @@ _page.display
         }, 420+69);
     })
     .setIcon(0)
+

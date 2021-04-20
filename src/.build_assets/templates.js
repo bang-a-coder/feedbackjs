@@ -22,10 +22,10 @@ export const StarTemplate = ()=> {
    `
 }
 
-export const LoveTemplate = () =>{
+export const LoveTemplate = (copy) =>{
     return html`
     <div class='choice fade-onload'>
-        <h1 class='thanks-message'>Thanks! Mind leaving a store review?</h1>
+        <h1 class='thanks-message'>${copy}</h1>
         <div class="buttons">
             <div class='button' id='no'>Nop</div>
             <div class='button' id='yes'>Sure<div>
@@ -35,19 +35,19 @@ export const LoveTemplate = () =>{
 }
 
 
-export const ThanksTemplate = () => {
+export const ThanksTemplate = (copy) => {
     return html`
         <div class='thanks fade-onload'>
             ${SVG('white-icon')}
-            <h1 class='thanks-message'>Thanks for your time, you help make Fready better :)</h1>
+            <h1 class='thanks-message'>${copy}</h1>
         </div>
     `
 }
 
-export const AdviceTemplate = () => {
+export const AdviceTemplate = (copy) => {
     return html`
     <div class='advice fade-onload'>
-        <textarea name="myInput" maxlength="500" required placeholder="How can we improve?"></textarea>
+        <textarea name="myInput" maxlength="500" required placeholder="${copy}"></textarea>
 
         <div class='button' id='send-advice'>Send</div>
     </div>
