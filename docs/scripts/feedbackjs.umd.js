@@ -195,32 +195,38 @@
         constructor(questionUno){
             super();
             this.questionUno = questionUno;
+            this.data = {
+                rating: null, //1-5 stars, do they love us?
+                review: null, //true/false , did they go to review us on the store?
+                feedback: null, // string, how can we improve section
+                exit: null // true/false if they closed the form
+            };
 
-            this.visualise();
+            this.initialise();
         }
 
-        visualise(){
+        initialise(){
+
+            let FeedbackOG = this;
 
             this.element = Template(this.questionUno).appendTo('body');
 
+            this.createEvent('data');
 
             this.stars = J('starsPragma')
                             .as(this.element.find('.stars'))
                             .createWires('stars')
                             .createEvents('judge')
                             .run(function(){
-
                                 let i = 0;
                                 while (i<5) {
                                     i++;
                                     this.contain(StarTemplate().appendTo(this));
                                 }
-
                             })
                             .run(function starSystem() { 
                                  this.on('starsChange', (v, lv) => {
                                     this.fillStars(v);
-
                                 });
 
                                 this.fillStars = (i) => {
@@ -261,6 +267,8 @@
                                             if (kid.classArray.includes('filled')) {kid.addClass('selected');}
                                         });
 
+                                        FeedbackOG.data.rating = i+1;
+
                                         this.triggerEvent('judge', i+1);
 
                                     });
@@ -273,7 +281,11 @@
             //Close button
             this.element.find(`[data-name='close-icon']`).listenTo('click', ()=>{
                 this.element.addClass('fadeout');
-                setTimeout(() => {this.element.addClass('display-none');}, 200);
+                this.data.exit = true;
+                setTimeout(() => {
+                    this.element.addClass('display-none');
+                    this.triggerEvent('data');
+                }, 200);
             });
         }
 
@@ -289,8 +301,11 @@
                     this.element.find('#send-advice').listenTo('click', ()=>{
                         console.log(this.element.find('textarea').value);
 
+                        this.data.feedback = this.element.find('textarea').value; 
+
                         setTimeout(() => {
                             changeFacade(this.element.find('.content'), ThanksTemplate);
+                            this.triggerEvent('data');
                         }, 200);
                     });
                 }, 200);
@@ -306,14 +321,18 @@
         
                         this.element.find('#no').listenTo('click', ()=>{
                             setTimeout(() => {
+                                this.data.review = false;
                                 changeFacade(this.element.find('.content'), ThanksTemplate);
+                                this.triggerEvent('data');
                             }, 200);
                         });
             
                         this.element.find('#yes').listenTo('click', ()=>{
                             setTimeout(() => {
+                                this.data.review = true;
                                 changeFacade(this.element.find('.content'), ThanksTemplate);
                                 createTab('https://chrome.google.com/webstore/detail/fready/fbfecjjfhcgpocehenopdofhkdjfpcgl/reviews');
+                                this.triggerEvent('data');
                             }, 200); 
                         });
                     });
@@ -336,7 +355,14 @@
     }
 
     function _feedback(){
-        return new Feedback(...arguments)
+        let form =  new Feedback(...arguments);
+
+        form.on('data', ()=> {
+            console.log('DATA');
+            console.log(form.data);
+        });
+
+        return form
     }
 
     exports.SVG = SVG;
