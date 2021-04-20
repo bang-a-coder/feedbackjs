@@ -14,8 +14,8 @@ export class Feedback extends Pragma{
         this.data = {
             rating: null, //1-5 stars, do they love us?
             review: null, //true/false , did they go to review us on the store?
-            feedback: null, // string, how can we improve section
-            exit: null // true/false if they closed the form
+            feedback: '', // string, how can we improve section
+            'manual-exit': false // true/false if they closed the form
         }
 
         this.initialise()
@@ -96,12 +96,8 @@ export class Feedback extends Pragma{
         
         //Close button
         this.element.find(`[data-name='close-icon']`).listenTo('click', ()=>{
-            this.element.addClass('fadeout')
-            this.data.exit = true
-            setTimeout(() => {
-                this.element.addClass('display-none')
-                this.triggerEvent('data')
-            }, 200);
+            this.data['manual-exit'] = true
+            this.close(200)
         })
     }
 
@@ -121,7 +117,7 @@ export class Feedback extends Pragma{
 
                     setTimeout(() => {
                         changeFacade(this.element.find('.content'), ThanksTemplate)
-                        this.triggerEvent('data')
+                        this.close(5000)
                     }, 200);
                 })
             }, 200);
@@ -139,7 +135,7 @@ export class Feedback extends Pragma{
                         setTimeout(() => {
                             this.data.review = false
                             changeFacade(this.element.find('.content'), ThanksTemplate)
-                            this.triggerEvent('data')
+                            this.close(5000)
                         }, 200);
                     })
         
@@ -148,7 +144,7 @@ export class Feedback extends Pragma{
                             this.data.review = true
                             changeFacade(this.element.find('.content'), ThanksTemplate)
                             createTab('https://chrome.google.com/webstore/detail/fready/fbfecjjfhcgpocehenopdofhkdjfpcgl/reviews')
-                            this.triggerEvent('data')
+                            this.close(5000)
                         }, 200); 
                     })
                 })
@@ -157,6 +153,15 @@ export class Feedback extends Pragma{
             
             
         }
+    }
+
+    close(time){
+        setTimeout(() => {
+            this.element.addClass('fadeout')
+
+            // this.element.addClass('display-none')
+            this.triggerEvent('data')
+        }, time);
     }
 }
 
