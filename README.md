@@ -44,7 +44,9 @@ feedbackjs._feedback(
     'How satisfied are you with Fready?',   //Rating question
     'Thanks! Mind leaving a store review?', //App store rating copy
     'How can we improve?', //feedback textbox placeholder
-    'Thanks for your time! You help make Fready better:)' //Thank you copy
+    'Thanks for your time! You help make Fready better:)', //Thank you copy
+    'https://chrome.google.com/webstore/detail/fready/fbfecjjfhcgpocehenopdofhkdjfpcgl/reviews' //Store link
     )
+
 
 ```
