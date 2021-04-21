@@ -8,12 +8,13 @@ console.log('TIIIITS')
 
 
 export class Feedback extends Pragma{
-    constructor(starsCopy, ratingCopy, feedbackPlaceholder, thanksCopy){
+    constructor(starsCopy, ratingCopy, feedbackPlaceholder, thanksCopy, link){
         super()
         this.starsCopy = starsCopy
         this.ratingCopy = ratingCopy
         this.feedbackPlaceholder = feedbackPlaceholder
         this.thanksCopy = thanksCopy
+        this.link = link
         this.data = {
             rating: null, //1-5 stars, do they love us?
             review: null, //true/false , did they go to review us on the store?
@@ -146,7 +147,7 @@ export class Feedback extends Pragma{
                         setTimeout(() => {
                             this.data.review = true
                             changeFacade(this.element.find('.content'), ThanksTemplate, this.thanksCopy)
-                            createTab('https://chrome.google.com/webstore/detail/fready/fbfecjjfhcgpocehenopdofhkdjfpcgl/reviews')
+                            createTab(this.link)
                             this.close(5000)
                         }, 200); 
                     })
