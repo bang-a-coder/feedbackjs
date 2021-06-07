@@ -15,6 +15,7 @@ export class Feedback extends Pragma{
         this.feedbackPlaceholder = obj.feedPlaceholder
         this.thanksCopy = obj.thanksCopy
         this.link = obj.link
+        this.phaseTwo = obj.phaseTwo //whether shit happens after star rating
         this.data = {
             rating: null, //1-5 stars, do they love us?
             review: null, //true/false , did they go to review us on the store?
@@ -111,6 +112,15 @@ export class Feedback extends Pragma{
         if (rating<=3){
             console.log('Hates us')
 
+            if (this.phaseTwo == false){
+                setTimeout(() => {
+                    changeFacade(this.element.find('.content'), ThanksTemplate, this.thanksCopy)
+                    this.close(5000)
+                }, 200); 
+
+                return
+            }
+
             setTimeout(() => {
                 changeFacade(this.element.find('.content'), AdviceTemplate, this.feedbackPlaceholder)
 
@@ -130,6 +140,16 @@ export class Feedback extends Pragma{
 
         //If rating is >3, ask for store review
         if (rating>3){
+
+            if (this.phaseTwo == false){
+                setTimeout(() => {
+                    changeFacade(this.element.find('.content'), ThanksTemplate, this.thanksCopy)
+                    this.close(5000)
+                }, 200); 
+
+                return
+            }
+            
             setTimeout(() => {
                 changeFacade(this.element.find('.content'), LoveTemplate, this.ratingCopy)
 
