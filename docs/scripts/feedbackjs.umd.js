@@ -192,13 +192,13 @@
 
 
     class Feedback extends q{
-        constructor(starsCopy, ratingCopy, feedbackPlaceholder, thanksCopy, link){
+        constructor(obj){
             super();
-            this.starsCopy = starsCopy;
-            this.ratingCopy = ratingCopy;
-            this.feedbackPlaceholder = feedbackPlaceholder;
-            this.thanksCopy = thanksCopy;
-            this.link = link;
+            this.starsCopy = obj.starsCopy;
+            this.ratingCopy = obj.ratingCopy;
+            this.feedbackPlaceholder = obj.feedPlaceholder;
+            this.thanksCopy = obj.thanksCopy;
+            this.link = obj.link;
             this.data = {
                 rating: null, //1-5 stars, do they love us?
                 review: null, //true/false , did they go to review us on the store?
