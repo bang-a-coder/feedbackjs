@@ -40,13 +40,14 @@ pnpm release --patch
 
 ```bash
 
-feedbackjs._feedback(
-    'How satisfied are you with Fready?',   //Rating question
-    'Thanks! Mind leaving a store review?', //App store rating copy
-    'How can we improve?', //feedback textbox placeholder
-    'Thanks for your time! You help make Fready better:)', //Thank you copy
-    'https://chrome.google.com/webstore/detail/fready/fbfecjjfhcgpocehenopdofhkdjfpcgl/reviews' //Store link
-    )
+feedbackjs._feedback({
+        starsCopy: 'How satisfied are you with Fready?',
+        ratingCopy: 'Thanks! Mind leaving a store review?',
+        feedPlaceholder: 'How can we improve?', //feedback textbox placeholder
+        thanksCopy: 'Thanks for your time! You help make Fready better:)', //Thank you copy
+        link: 'https://chrome.google.com/webstore/detail/fready/fbfecjjfhcgpocehenopdofhkdjfpcgl/reviews', //Store link
+        phaseTwo: true //whether shit happens after star rating
+    })
 
 
 ```
