@@ -297,10 +297,7 @@
                 console.log('Hates us');
 
                 if (this.phaseTwo == false){
-                    setTimeout(() => {
-                        changeFacade(this.element.find('.content'), ThanksTemplate, this.thanksCopy);
-                        this.close(5000);
-                    }, 200); 
+                    setTimeout(() => { this.thanks(); }, 200); 
 
                     return
                 }
@@ -313,10 +310,7 @@
 
                         this.data.feedback = this.element.find('textarea').value; 
 
-                        setTimeout(() => {
-                            changeFacade(this.element.find('.content'), ThanksTemplate, this.thanksCopy);
-                            this.close(5000);
-                        }, 200);
+                        setTimeout(() => { this.thanks(); }, 200);
                     });
                 }, 200);
 
@@ -326,10 +320,7 @@
             if (rating>3){
 
                 if (this.phaseTwo == false){
-                    setTimeout(() => {
-                        changeFacade(this.element.find('.content'), ThanksTemplate, this.thanksCopy);
-                        this.close(5000);
-                    }, 200); 
+                    setTimeout(() => { this.thanks(); }, 200); 
 
                     return
                 }
@@ -342,17 +333,15 @@
                         this.element.find('#no').listenTo('click', ()=>{
                             setTimeout(() => {
                                 this.data.review = false;
-                                changeFacade(this.element.find('.content'), ThanksTemplate, this.thanksCopy);
-                                this.close(5000);
+                                this.thanks();
                             }, 200);
                         });
             
                         this.element.find('#yes').listenTo('click', ()=>{
                             setTimeout(() => {
                                 this.data.review = true;
-                                changeFacade(this.element.find('.content'), ThanksTemplate, this.thanksCopy);
                                 createTab(this.link);
-                                this.close(5000);
+                                this.thanks();
                             }, 200); 
                         });
                     });
@@ -368,6 +357,11 @@
                 this.element.addClass('fadeout');
                 this.triggerEvent('data');
             }, time);
+        }
+
+        thanks(){
+            changeFacade(this.element.find('.content'), ThanksTemplate, this.thanksCopy);
+            this.close(5000);
         }
     }
 

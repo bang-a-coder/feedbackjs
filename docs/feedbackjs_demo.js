@@ -10,7 +10,7 @@ feedbackjs._feedback({
         feedPlaceholder: 'How can we improve?', //feedback textbox placeholder
         thanksCopy: 'Thanks for your time! You help make Fready better:)', //Thank you copy
         link: 'https://chrome.google.com/webstore/detail/fready/fbfecjjfhcgpocehenopdofhkdjfpcgl/reviews', //Store link
-        phaseTwo: false //whether shit happens after star rating
+        phaseTwo: true //whether shit happens after star rating
     })
 
 
