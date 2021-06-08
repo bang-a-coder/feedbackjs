@@ -15,7 +15,7 @@ export class Feedback extends Pragma{
         this.feedbackPlaceholder = obj.feedPlaceholder
         this.thanksCopy = obj.thanksCopy
         this.link = obj.link
-        this.phaseTwo = obj.phaseTwo //whether shit happens after star rating
+        this.nextSteps = obj.nextSteps //whether shit happens after star rating
         this.data = {
             rating: null, //1-5 stars, do they love us?
             review: null, //true/false , did they go to review us on the store?
@@ -112,30 +112,33 @@ export class Feedback extends Pragma{
         if (rating<=3){
             console.log('Hates us')
 
-            if (this.phaseTwo == false){
+            if (this.nextSteps == 0){
                 setTimeout(() => { this.thanks() }, 200); 
 
                 return
             }
 
-            setTimeout(() => {
-                changeFacade(this.element.find('.content'), AdviceTemplate, this.feedbackPlaceholder)
-
-                this.element.find('#send-advice').listenTo('click', ()=>{
-                    console.log(this.element.find('textarea').value)
-
-                    this.data.feedback = this.element.find('textarea').value 
-
-                    setTimeout(() => { this.thanks() }, 200);
-                })
-            }, 200);
+            if (this.nextSteps >= 1){
+                setTimeout(() => {
+                    changeFacade(this.element.find('.content'), AdviceTemplate, this.feedbackPlaceholder)
+    
+                    this.element.find('#send-advice').listenTo('click', ()=>{
+                        console.log(this.element.find('textarea').value)
+    
+                        this.data.feedback = this.element.find('textarea').value 
+    
+                        setTimeout(() => { this.thanks() }, 200);
+                    })
+                }, 200);
+            }
+            
 
         }
 
         //If rating is >3, ask for store review
         if (rating>3){
 
-            if (this.phaseTwo == false){
+            if (this.nextSteps < 2){
                 setTimeout(() => { this.thanks() }, 200); 
 
                 return
@@ -173,6 +176,10 @@ export class Feedback extends Pragma{
             this.element.addClass('fadeout')
             this.triggerEvent('data')
         }, time);
+
+        setTimeout(() => {
+           this.element.hide() 
+        }, time + 100);
     }
 
     thanks(){
